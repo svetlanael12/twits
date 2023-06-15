@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRoutes } from 'react-router-dom';
 import { CREATE_POST_ROUTE, HOME_ROUTE, LOGIN_ROUTE, POST_ROUTE, REGISTRATION_ROUTE, UPDATE_POST_ROUTE } from './routers';
 import HomePage from '../pages/home-page';
@@ -6,13 +6,18 @@ import PostPage from '../pages/post-page';
 import CreatePostPage from '../pages/create-post-page';
 import UpdatePostPage from '../pages/update-post-page';
 import Auth from '../pages/auth-page';
-
-const user = {
-  isAuth: true
-}
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchPost, isAuth } from '../actions/actionCreators';
 
 const AppRouter = () => {
-  
+  const dispatch = useDispatch();
+  const { auth } = useSelector(state => state);
+
+  useEffect(() => {
+    let token = localStorage.getItem('token');
+    dispatch(fetchPost(isAuth, '/auth/check', 'GET', token))
+  }, [])
+
   let publicRoutes = useRoutes([
     {
       path: HOME_ROUTE,
@@ -43,7 +48,8 @@ const AppRouter = () => {
   ]);
   return (
     <>
-      {publicRoutes} {user.isAuth && authRoutes}
+      {publicRoutes} 
+      {auth && authRoutes}
     </>
   );
 };

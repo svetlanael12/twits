@@ -7,6 +7,7 @@ import {
   ERROR,
   SUCCESS,
   IS_AUTH,
+  CURRENT_POST,
 } from './actionTypes';
 
 export const allPosts = (posts) => ({
@@ -29,13 +30,14 @@ export const loading = () => ({
   type: LOADING
 })
 
-export const success = () => ({
-  type: SUCCESS
+export const success = (success) => ({
+  type: SUCCESS,
+  payload: {success}
 })
 
-export const error = (message) => ({
+export const error = (err) => ({
   type: ERROR,
-  payload: {message}
+  payload: {err}
 })
 
 export function fetchPost(functionDispatch, URL, method, token = '', body = '') {
@@ -52,17 +54,19 @@ export function fetchPost(functionDispatch, URL, method, token = '', body = '') 
       }
       requestOptions.body = JSON.stringify(body)
     } 
+    if (method === 'DELETE') {
+      requestOptions.body = null
+    }
     if (URL === '/auth/check') {
       requestOptions.headers = {
         'Authorization': `Bearer ${token}`
       }
     }
-
     fetch(`http://localhost:5000${URL}`, requestOptions)
       .then(response => {
         if (response.status === 401 && response.statusText === 'Unauthorized') {
           dispatch(isAuth(null))
-          dispatch(error('Пожалуйста, авторизуйтесь'))
+          dispatch(error({status: 'unAuth', message: 'Пожалуйста, авторизуйтесь'}))
           console.log(getState())
         }
         return response.json()
@@ -70,15 +74,14 @@ export function fetchPost(functionDispatch, URL, method, token = '', body = '') 
       .then(data => {
         if (data.status === "success") {
           dispatch(functionDispatch(data.body))
-          dispatch(success())
+          dispatch(success(true))
         } else {
-          console.log('data', data)
-          dispatch(error(data.message))
+          dispatch(error(data))
         }
         console.log(getState())
       })
       .catch((err) => {
-        dispatch(error())
+        dispatch(error(err))
       })
       
   }
@@ -107,8 +110,7 @@ export const registration = (body) => {
           dispatch(fetchPost(isAuth, '/auth/login', 'POST', '', {email: body.email, password: body.password}))
           dispatch(success())
         } else {
-          // console.log('registration', data)
-          dispatch(error(data.message))
+          dispatch(error(data))
         }
         console.log('registration', getState())
       })
@@ -117,3 +119,7 @@ export const registration = (body) => {
       })
   }
 }
+
+export const getCurrentPost = (post) => ({
+  type: CURRENT_POST, payload: { post }
+})

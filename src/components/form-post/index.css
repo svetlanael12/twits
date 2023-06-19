@@ -1,0 +1,27 @@
+.form-post {
+  margin: auto;
+  max-width: 700px;
+}
+
+.form-post__label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.form-post__label {
+  /* margin-top: 3px; */
+  color: var(--gray);
+}
+
+.form-post__length {
+  margin-top: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-post__textarea {
+  font-size: 13px;
+  min-width: 100%;
+  height: max-content;
+  resize: none;
+}

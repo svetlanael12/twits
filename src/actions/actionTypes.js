@@ -8,3 +8,5 @@ export const SUCCESS = 'SUCCESS';
 export const ERROR = 'ERROR';
 
 export const IS_AUTH = 'IS_AUTH';
+
+export const CURRENT_POST = 'CURRENT_POST';

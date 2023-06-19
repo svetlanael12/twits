@@ -1,0 +1,14 @@
+.auth-page {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-page__subtitle {
+  margin-top: 15px;
+
+  color: var(--white);
+  font-size: 13px;
+}

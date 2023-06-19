@@ -1,53 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { NavLink, useLocation } from 'react-router-dom';
+import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../routers/routers';
+
+import FormAuth from '../../components/form-auth';
 import './index.css'
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchPost, isAuth, registration } from '../../actions/actionCreators';
-import { useLocation } from 'react-router-dom';
-import { LOGIN_ROUTE } from '../../routers/routers';
 
 export default function AuthPage() {
-  const dispatch = useDispatch();
   const location = useLocation()
-  const [login, setLogin] = useState('')
-  const [password, setPassword] = useState('')
-  const [username, setUsername] = useState('')
 
   const isLogin = location.pathname === LOGIN_ROUTE
 
-  function Login() {
-    const body = {
-      email: login,
-      username: username,
-      password: password
-    }
-
-    dispatch(registration(body))
-  }
-
-  function Login2() {
-    const body = {
-      email: login,
-      password: password
-    }
-    dispatch(fetchPost(isAuth, '/auth/login', 'POST', '', body))
-  }
-
   return (
-    <div>
+    <div className='auth-page'>
       {
-        !isLogin ? 
-        <div>
-          <input type='text' placeholder='login' value={login} onChange={(e) => setLogin(e.target.value)}/>
-          <input type='text' placeholder='username' value={username} onChange={(e) => setUsername(e.target.value)}/>
-          <input type='text' placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
-          <button onClick={Login}>click</button>
-        </div> : 
-        <div>
-        <div>
-          <input type='text' placeholder='login' value={login} onChange={(e) => setLogin(e.target.value)}/>
-          <input type='text' placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
-          <button onClick={Login2}>click</button>
-        </div></div>
+        isLogin ?
+        <h2 className='title'>Авторизация</h2> :
+        <h2 className='title'>Регистрация</h2>
+      }
+      <FormAuth isLogin={isLogin}/>
+      {
+        isLogin ?
+        <p className='auth-page__subtitle'>Не зарегистрированы? <NavLink to={REGISTRATION_ROUTE}>Зарегистрируйтесь</NavLink></p> :
+        <p className='auth-page__subtitle'>Уже зарегистрированы? <NavLink to={LOGIN_ROUTE}>Авторизуйтесь</NavLink></p>
       }
     </div>
   )

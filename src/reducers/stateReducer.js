@@ -7,6 +7,7 @@ import {
 const initialState = {
   loading: false,
   error: null,
+  success: null
 };
 
 export default function stateReducer(state = initialState, action) {
@@ -14,10 +15,11 @@ export default function stateReducer(state = initialState, action) {
     case LOADING:
       return {...state, loading: true, error: null};
     case ERROR:
-      const { message } = action.payload
-      return {...state, loading: false, error: message};
+      const { err } = action.payload
+      return {...state, loading: false, error: err};
     case SUCCESS:
-      return {...state, loading: false, error: null};
+      const { success } = action.payload
+      return {...state, loading: false, error: null, success: success};
     default:
       return state;
   }

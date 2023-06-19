@@ -1,0 +1,25 @@
+.full-post__wrp-btns {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.full-post__btn {
+  font-size: 11px;
+  color: var(--white);
+  padding: 5px;
+
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.full-post__btn_update {
+  background-color: transparent;
+  border: 1px solid var(--pink);
+}
+
+.full-post__btn_delete {
+  background-color: var(--pink);
+  border: none;
+}

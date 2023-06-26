@@ -1,15 +1,8 @@
-/twits   
-/twits/post/:id    
-/twits/post/create    
-/twits/post/update   
-   
-/twits/profile    
-/twits/profile/posts   
-    
-/twits/login    
-/twits/registration   
+ Приложение для создания постов  
+Разработано с использованием инструментов
+- react, 
+- react-router-dom, 
+- redux / react-redux,
+- redux-thunk
 
-
-react, react-router-dom, redux, react-redux, react-router-dom, redux-thunk, 
-
-mobile-first
+Mobile-first верстка (BEM-методология)

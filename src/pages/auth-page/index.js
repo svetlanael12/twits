@@ -7,7 +7,6 @@ import './index.css'
 
 export default function AuthPage() {
   const location = useLocation()
-
   const isLogin = location.pathname === LOGIN_ROUTE
 
   return (

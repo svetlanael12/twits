@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
+
 import { LOGIN_ROUTE } from '../../routers/routers'
 import { error, isAuth, loading, success } from '../../actions/actionCreators'
-
 import LoadingIcon from '../../components/loading'
+
 import Post from '../../components/post'
+import BtnBack from '../../components/button-back'
 
-import './index.css'
-
-export default function ProfilePage() {
+export default function UserPage() {
   const {id} = useParams()
   const {auth} = useSelector(state => state)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState()
   const [user, setUser] = useState()
   const [btnLogOut, setBtnLogOut] = useState(false)
 
   useEffect(() => {
     if (auth && user) {
       const decode = decodeURIComponent(escape(atob(auth.split('.')[1])))
-      if (JSON.parse(decode).userId === user.id) {
+      if (JSON.parse(decode).userId === user.ID) {
         setBtnLogOut(true)
       }
     }
@@ -59,16 +59,11 @@ export default function ProfilePage() {
           .then(data => {
             if (data.status === "success") {
               setUser(data.body)
-              console.lopg(data.body.posts)
-              if (data.body.posts.length > 0) {
-                data.body.posts.map((postId) => {
-                  dispatch(getPost(postId))
-                  setPosts(allPosts)
-                })
-              } else {
-                setPosts("Постов нет")
-              }
-              
+              console.log(data.body)
+              data.body.posts.map((postId) => {
+                dispatch(getPost(postId))
+              })
+              setPosts(allPosts)
               dispatch(success(null))
             } else {
               setUser('Пользователь не найден')
@@ -92,6 +87,7 @@ export default function ProfilePage() {
 
   return (
     <section className='profile-page'>
+    <BtnBack />
       {
         user ? 
         <>

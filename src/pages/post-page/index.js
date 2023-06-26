@@ -2,10 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import {  error, getCurrentPost, loading, success } from '../../actions/actionCreators'
-import Post from '../../components/post'
 import LoadingIcon from '../../components/loading'
-
-import './index.css'
 import FullPost from '../../components/full-post'
 
 export default function PostPage() {
@@ -18,7 +15,7 @@ export default function PostPage() {
       return (dispatch) => {
         dispatch(loading())
 
-        fetch(`http://localhost:5000/${id}`)
+        fetch(`https://twits-backend.svetlanael12.repl.co/${id}`)
           .then(response => response.json())
           .then(data => {
             if (data.status === "success") {
@@ -37,11 +34,15 @@ export default function PostPage() {
   }, [])
 
   return (
-    currentPost ?
+    <div>
+      {
+        currentPost ?
       <>
         <FullPost/>
         <h2 style={{ color: '#fff', textAlign: 'center' }}>Комментариев пока нет</h2>
       </> :
       <LoadingIcon />
+      }
+    </div>
   )
 }

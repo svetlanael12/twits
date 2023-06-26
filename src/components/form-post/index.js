@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
-import './index.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { createPost, fetchPost, success } from '../../actions/actionCreators'
+import { fetchPost, success } from '../../actions/actionCreators'
 import { useNavigate } from 'react-router-dom'
 import { HOME_ROUTE } from '../../routers/routers'
+
+import './index.css'
 
 export default function FormPost({descProps, titleProps, func, URL, method}) {
   const dispatch = useDispatch()

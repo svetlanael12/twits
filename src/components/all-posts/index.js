@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getCurrentPost } from '../../actions/actionCreators'
 import Post from '../post'
 
 import './index.css'
-import { useDispatch, useSelector } from 'react-redux'
-import { getCurrentPost } from '../../actions/actionCreators'
 
 export default function AllPosts({posts}) {
   const dispatch = useDispatch()

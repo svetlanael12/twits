@@ -10,6 +10,6 @@
 /twits/registration   
 
 
-react, redux, react-redux, react-router-dom, redux-thunk
+react, react-router-dom, redux, react-redux, react-router-dom, redux-thunk, 
 
 mobile-first

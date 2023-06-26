@@ -6,6 +6,7 @@ import { HOME_ROUTE, UPDATE_POST_ROUTE } from '../../routers/routers'
 
 import Post from '../post'
 import './index.css'
+import BtnBack from '../button-back'
 
 export default function FullPost() {
   const dispatch = useDispatch()
@@ -39,6 +40,7 @@ export default function FullPost() {
 
   return (
     <div className='full-post'>
+      <BtnBack />
       <Post/>
       {
         edit &&

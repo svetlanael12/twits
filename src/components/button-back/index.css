@@ -1,0 +1,9 @@
+.btn-back {
+  margin-bottom: 5px;
+  font-size: 1.6rem;
+  padding: 5px 15px;
+  color: var(--white);
+  border: 1px solid var(--white);
+
+  cursor: pointer;
+}

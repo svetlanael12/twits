@@ -1,5 +1,5 @@
 .profile-page {
-  max-width: 700px;
+  max-width: 650px;
   margin-bottom: 15%;
   margin-left: auto;
   margin-right: auto;
@@ -78,4 +78,11 @@
 
 .profile-page__info-user .btn-purple {
   margin-top: 20px;
+}
+
+@media (min-width: 900px) {
+  /* .profile-page {
+    margin-left: 0;
+    margin-right: 0;
+  } */
 }

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import './index.css'
 import { useDispatch, useSelector } from 'react-redux';
+
 import { allPosts, fetchPost, success } from '../../actions/actionCreators';
 import LoadingIcon from '../../components/loading';
 import AllPosts from '../../components/all-posts';

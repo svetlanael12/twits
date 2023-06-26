@@ -62,7 +62,7 @@ export function fetchPost(functionDispatch, URL, method, token = '', body = '') 
         'Authorization': `Bearer ${token}`
       }
     }
-    fetch(`http://localhost:5000${URL}`, requestOptions)
+    fetch(`https://twits-backend.svetlanael12.repl.co${URL}`, requestOptions)
       .then(response => {
         if (response.status === 401 && response.statusText === 'Unauthorized') {
           dispatch(isAuth(null))
@@ -103,7 +103,7 @@ export const registration = (body) => {
       body: JSON.stringify(body)
     }
 
-    fetch(`http://localhost:5000/auth/registration`, requestOptions)
+    fetch(`https://twits-backend.svetlanael12.repl.co/auth/registration`, requestOptions)
       .then(response => response.json())
       .then(data => {
         if (data.status === "success") {

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/twits/static/css/main.06d2fa9c.css",
-    "main.js": "/twits/static/js/main.64810e4e.js",
+    "main.js": "/twits/static/js/main.7a0ff271.js",
     "static/media/background-profile.jpg": "/twits/static/media/background-profile.5f408a9e4c7ed871ee8a.jpg",
     "static/media/not-visible-eye.svg": "/twits/static/media/not-visible-eye.afa2574b6031fa73c2e542911f2bafae.svg",
     "static/media/eye-visible.svg": "/twits/static/media/eye-visible.cdd651d63c30811c6e5daf2033cda7f4.svg",
@@ -10,10 +10,10 @@
     "static/media/profile.svg": "/twits/static/media/profile.e964f66b27e6bcf33de3acd7eb9cb09e.svg",
     "static/media/plus.svg": "/twits/static/media/plus.2407086342f4c91803536bc45f4c03da.svg",
     "main.06d2fa9c.css.map": "/twits/static/css/main.06d2fa9c.css.map",
-    "main.64810e4e.js.map": "/twits/static/js/main.64810e4e.js.map"
+    "main.7a0ff271.js.map": "/twits/static/js/main.7a0ff271.js.map"
   },
   "entrypoints": [
     "static/css/main.06d2fa9c.css",
-    "static/js/main.64810e4e.js"
+    "static/js/main.7a0ff271.js"
   ]
 }

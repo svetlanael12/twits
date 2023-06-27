@@ -9,3 +9,5 @@
 - redux-thunk
 
 Mobile-first верстка (BEM-методология)
+
+[Репозиторий серверной части](https://github.com/svetlanael12/twits-backend)

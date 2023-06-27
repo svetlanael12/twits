@@ -18,7 +18,6 @@ const AppRouter = () => {
 
   useEffect(() => {
     let token = localStorage.getItem('token');
-    console.log(token)
     dispatch(fetchPost(isAuth, '/auth/check', 'GET', token))
   }, [])
 

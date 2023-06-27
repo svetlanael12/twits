@@ -59,16 +59,10 @@ export default function ProfilePage() {
           .then(data => {
             if (data.status === "success") {
               setUser(data.body)
-              console.lopg(data.body.posts)
-              if (data.body.posts.length > 0) {
-                data.body.posts.map((postId) => {
-                  dispatch(getPost(postId))
-                  setPosts(allPosts)
-                })
-              } else {
-                setPosts("Постов нет")
-              }
-              
+              data.body.posts.map((postId) => {
+                dispatch(getPost(postId))
+                setPosts(allPosts)
+              })
               dispatch(success(null))
             } else {
               setUser('Пользователь не найден')

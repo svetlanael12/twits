@@ -1,4 +1,4 @@
-export const HOME_ROUTE = '/twits/home'
+export const HOME_ROUTE = '/twits'
 
 export const POST_ROUTE = '/twits/post'
 export const CREATE_POST_ROUTE = '/twits/posts/create'

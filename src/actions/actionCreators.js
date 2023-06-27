@@ -67,7 +67,6 @@ export function fetchPost(functionDispatch, URL, method, token = '', body = '') 
         if (response.status === 401 && response.statusText === 'Unauthorized') {
           dispatch(isAuth(null))
           dispatch(error({status: 'unAuth', message: 'Пожалуйста, авторизуйтесь'}))
-          console.log(getState())
         }
         return response.json()
       })
@@ -78,7 +77,6 @@ export function fetchPost(functionDispatch, URL, method, token = '', body = '') 
         } else {
           dispatch(error(data))
         }
-        console.log(getState())
       })
       .catch((err) => {
         dispatch(error(err))
@@ -112,7 +110,6 @@ export const registration = (body) => {
         } else {
           dispatch(error(data))
         }
-        console.log('registration', getState())
       })
       .catch((err) => {
         dispatch(error(err))

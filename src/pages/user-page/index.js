@@ -59,7 +59,6 @@ export default function UserPage() {
           .then(data => {
             if (data.status === "success") {
               setUser(data.body)
-              console.log(data.body)
               data.body.posts.map((postId) => {
                 dispatch(getPost(postId))
               })
